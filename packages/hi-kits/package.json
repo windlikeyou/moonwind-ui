@@ -1,0 +1,64 @@
+{
+  "name": "hi-kits",
+  "version": "1.0.0",
+  "description": "A modern Vue 3 component library",
+  "type": "module",
+  "main": "./dist/hi-kits.cjs",
+  "module": "./dist/hi-kits.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/hi-kits.js",
+      "require": "./dist/hi-kits.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/style.css": "./dist/style.css",
+    "./style": {
+      "import": "./dist/style.js",
+      "require": "./dist/style.cjs",
+      "types": "./dist/style.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && vue-tsc --project tsconfig.build.json",
+    "dev": "vite build --watch",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "component-library",
+    "ui",
+    "typescript"
+  ],
+  "author": "hi-kits",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.3.0",
+    "ag-grid-community": "^34.0.0",
+    "ag-grid-vue3": "^34.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.3",
+    "concurrently": "^9.2.1",
+    "sass-embedded": "^1.93.2",
+    "typescript": "^5.9.2",
+    "vite": "^5.0.12",
+    "vue": "^3.4.15",
+    "vue-tsc": "^2.2.12"
+  },
+  "sideEffects": [
+    "*.css",
+    "*.scss",
+    "*.vue"
+  ],
+  "dependencies": {
+    "@hi-kits/components": "workspace:*",
+    "@hi-kits/styles": "workspace:*",
+    "@hi-kits/utils": "workspace:*",
+    "@hi-kits/hooks": "workspace:*"
+  }
+}

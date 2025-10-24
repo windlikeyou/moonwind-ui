@@ -1,0 +1,188 @@
+// 所有@use规则必须在最前面
+@use './variables' as *;
+@use './mixins' as *;
+@use './tokens/variables' as *;
+
+/* Hi-Kits SCSS Entry */
+
+// 导入组件样式
+@import './components/button.scss';
+@import './components/data-grid.scss';
+
+// 强制使用 CSS 变量，防止被构建工具移除
+.#{$namespace}-css-variables-force {
+  /* 这个类不会被实际使用，但确保 CSS 变量被保留 */
+  color: var(--#{$namespace}-color-primary);
+  background-color: var(--#{$namespace}-color-white);
+  font-family: var(--#{$namespace}-font-family);
+  font-size: var(--#{$namespace}-font-size-base);
+  padding: var(--#{$namespace}-spacing-4);
+  border-radius: var(--#{$namespace}-radius-base);
+  box-shadow: var(--#{$namespace}-shadow-base);
+  transition: var(--#{$namespace}-transition-base);
+}
+
+// 全局重置样式
+* {
+  box-sizing: border-box;
+}
+
+// 全局字体设置
+body {
+  font-family: var(--#{$namespace}-font-family);
+  font-size: var(--#{$namespace}-font-size-base);
+  line-height: var(--#{$namespace}-line-height-base);
+  color: var(--#{$namespace}-color-text);
+  background-color: var(--#{$namespace}-color-background);
+}
+
+// 全局滚动条样式
+::-webkit-scrollbar {
+  width: var(--#{$namespace}-scrollbar-width);
+  height: var(--#{$namespace}-scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--#{$namespace}-color-border-light);
+  border-radius: var(--#{$namespace}-border-radius-xs);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--#{$namespace}-color-border);
+  border-radius: var(--#{$namespace}-border-radius-xs);
+  
+  &:hover {
+    background: var(--#{$namespace}-color-text-secondary);
+  }
+}
+
+// 全局工具类
+.#{$namespace}-clearfix {
+  @include clearfix;
+}
+
+.#{$namespace}-text-ellipsis {
+  @include ellipsis;
+}
+
+.#{$namespace}-center {
+  @include center-flex;
+}
+
+.#{$namespace}-flex-center {
+  @include center-flex;
+}
+
+// 响应式工具类
+@each $breakpoint, $value in $breakpoints {
+  @include respond-to($breakpoint) {
+    .#{$namespace}-hidden-#{$breakpoint} {
+      display: none !important;
+    }
+    
+    .#{$namespace}-visible-#{$breakpoint} {
+      display: block !important;
+    }
+  }
+}
+
+// 间距工具类
+@for $i from 0 through 10 {
+  .#{$namespace}-m-#{$i} {
+    margin: calc(#{$i} * var(--#{$namespace}-spacing-unit)) !important;
+  }
+  
+  .#{$namespace}-mt-#{$i} {
+    margin-top: calc(#{$i} * var(--#{$namespace}-spacing-unit)) !important;
+  }
+  
+  .#{$namespace}-mr-#{$i} {
+    margin-right: calc(#{$i} * var(--#{$namespace}-spacing-unit)) !important;
+  }
+  
+  .#{$namespace}-mb-#{$i} {
+    margin-bottom: calc(#{$i} * var(--#{$namespace}-spacing-unit)) !important;
+  }
+  
+  .#{$namespace}-ml-#{$i} {
+    margin-left: calc(#{$i} * var(--#{$namespace}-spacing-unit)) !important;
+  }
+  
+  .#{$namespace}-p-#{$i} {
+    padding: calc(#{$i} * var(--#{$namespace}-spacing-unit)) !important;
+  }
+  
+  .#{$namespace}-pt-#{$i} {
+    padding-top: calc(#{$i} * var(--#{$namespace}-spacing-unit)) !important;
+  }
+  
+  .#{$namespace}-pr-#{$i} {
+    padding-right: calc(#{$i} * var(--#{$namespace}-spacing-unit)) !important;
+  }
+  
+  .#{$namespace}-pb-#{$i} {
+    padding-bottom: calc(#{$i} * var(--#{$namespace}-spacing-unit)) !important;
+  }
+  
+  .#{$namespace}-pl-#{$i} {
+    padding-left: calc(#{$i} * var(--#{$namespace}-spacing-unit)) !important;
+  }
+}
+
+// 文本颜色工具类
+.#{$namespace}-text-primary {
+  color: var(--#{$namespace}-color-text) !important;
+}
+
+.#{$namespace}-text-secondary {
+  color: var(--#{$namespace}-color-text-secondary) !important;
+}
+
+.#{$namespace}-text-disabled {
+  color: var(--#{$namespace}-color-text-disabled) !important;
+}
+
+.#{$namespace}-text-success {
+  color: var(--#{$namespace}-color-success) !important;
+}
+
+.#{$namespace}-text-warning {
+  color: var(--#{$namespace}-color-warning) !important;
+}
+
+.#{$namespace}-text-error {
+  color: var(--#{$namespace}-color-error) !important;
+}
+
+.#{$namespace}-text-info {
+  color: var(--#{$namespace}-color-info) !important;
+}
+
+// 背景颜色工具类
+.#{$namespace}-bg-primary {
+  background-color: var(--#{$namespace}-color-primary) !important;
+}
+
+.#{$namespace}-bg-success {
+  background-color: var(--#{$namespace}-color-success) !important;
+}
+
+.#{$namespace}-bg-warning {
+  background-color: var(--#{$namespace}-color-warning) !important;
+}
+
+.#{$namespace}-bg-error {
+  background-color: var(--#{$namespace}-color-error) !important;
+}
+
+.#{$namespace}-bg-info {
+  background-color: var(--#{$namespace}-color-info) !important;
+}
+
+.#{$namespace}-bg-light {
+  background-color: var(--#{$namespace}-color-fill-light) !important;
+}
+
+.#{$namespace}-bg-base {
+  background-color: var(--#{$namespace}-color-background) !important;
+}

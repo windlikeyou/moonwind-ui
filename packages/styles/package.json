@@ -1,0 +1,32 @@
+{
+  "name": "@hi-kits/styles",
+  "version": "1.0.0",
+  "description": "Hi-Kits design system styles and tokens",
+  "main": "dist/index.css",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "vite build && npx tsc --project tsconfig.build.json",
+    "dev": "vite build --watch"
+  },
+  "keywords": [
+    "vue",
+    "ui",
+    "styles",
+    "scss",
+    "design-tokens"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.5",
+    "vite": "^5.0.0"
+  },
+  "peerDependencies": {
+    "ag-grid-community": "^31.0.0"
+  }
+}

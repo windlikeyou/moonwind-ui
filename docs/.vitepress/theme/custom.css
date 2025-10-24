@@ -1,0 +1,669 @@
+/* 毛玻璃效果样式 */
+:root {
+  --vp-nav-bg-color: rgba(255, 255, 255, 0.85);
+  --vp-nav-bg-color-dark: rgba(26, 26, 26, 0.85);
+  --vp-sidebar-bg-color: rgba(255, 255, 255, 0.9);
+  --vp-sidebar-bg-color-dark: rgba(26, 26, 26, 0.9);
+  
+  /* 科技感配色 */
+  --tech-primary: #6366f1;
+  --tech-secondary: #a855f7;
+  --tech-accent: #ec4899;
+  --tech-gradient: linear-gradient(135deg, var(--tech-primary), var(--tech-secondary), var(--tech-accent));
+  
+  /* 动画变量 */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  
+  /* 主页优化变量 */
+  --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --feature-bg: rgba(255, 255, 255, 0.8);
+  --feature-bg-dark: rgba(26, 26, 26, 0.8);
+}
+
+/* 全局动画优化 */
+* {
+  transition-timing-function: var(--ease-out-quart);
+}
+
+/* 导航栏毛玻璃效果 */
+.VPNav {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  transition: all 0.3s var(--ease-out-quart);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.VPNav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--tech-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.VPNav.has-sidebar {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* 滚动时增强毛玻璃效果 */
+.VPNav.scrolled {
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.VPNav.scrolled::before {
+  opacity: 0.03;
+}
+
+/* 侧边栏毛玻璃效果 */
+.VPSidebar {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 暗色模式下的毛玻璃效果 */
+.dark .VPNav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark .VPNav.scrolled {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.dark .VPSidebar {
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 现代化按钮样式 */
+.VPButton {
+  transition: all 0.3s var(--ease-out-quart);
+  border-radius: 12px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.VPButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--tech-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.VPButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.VPButton.brand:hover::before {
+  opacity: 0.1;
+}
+
+/* 科技感渐变背景 */
+.VPHero {
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.1) 0%, 
+    rgba(168, 85, 247, 0.1) 50%, 
+    rgba(236, 72, 153, 0.1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.VPHero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(99, 102, 241, 0.05) 0%, 
+    transparent 70%);
+  pointer-events: none;
+}
+
+.VPHero::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, 
+    transparent, 
+    rgba(99, 102, 241, 0.03), 
+    transparent, 
+    rgba(168, 85, 247, 0.03), 
+    transparent);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hero 标题增强 */
+.VPHero .name {
+  background: var(--tech-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
+  }
+  to {
+    filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.4));
+  }
+}
+
+/* 特性卡片现代化 */
+.VPFeatures .VPFeature {
+  transition: all 0.4s var(--ease-out-quart);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.VPFeatures .VPFeature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--tech-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.VPFeatures .VPFeature:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.VPFeatures .VPFeature:hover::before {
+  opacity: 0.05;
+}
+
+/* 卡片悬浮效果 */
+.vp-doc .custom-block,
+.demo-container {
+  transition: all 0.3s var(--ease-out-quart);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.vp-doc .custom-block::before,
+.demo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--tech-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.vp-doc .custom-block:hover,
+.demo-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.vp-doc .custom-block:hover::before,
+.demo-container:hover::before {
+  opacity: 0.03;
+}
+
+/* 代码块现代化样式 */
+.vp-code-group {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vp-code-group .tabs {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tech-gradient);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.8), 
+    rgba(168, 85, 247, 0.8));
+}
+
+/* 链接悬浮效果 */
+.vp-doc a {
+  transition: all 0.3s var(--ease-out-quart);
+  position: relative;
+}
+
+.vp-doc a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--tech-gradient);
+  transition: width 0.3s var(--ease-out-quart);
+}
+
+.vp-doc a:hover::after {
+  width: 100%;
+}
+
+/* 表格现代化样式 */
+.vp-doc table {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vp-doc th {
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.1) 0%, 
+    rgba(168, 85, 247, 0.1) 100%);
+  font-weight: 600;
+  position: relative;
+}
+
+.vp-doc th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--tech-gradient);
+  opacity: 0.3;
+}
+
+.vp-doc tr:hover {
+  background: rgba(99, 102, 241, 0.05);
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* 搜索框现代化 */
+.DocSearch-Button {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s var(--ease-out-quart);
+  position: relative;
+  overflow: hidden;
+}
+
+.DocSearch-Button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--tech-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.DocSearch-Button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.DocSearch-Button:hover::before {
+  opacity: 0.05;
+}
+
+/* 侧边栏导航优化 */
+.VPSidebarItem .link {
+  transition: all 0.3s var(--ease-out-quart);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.VPSidebarItem .link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--tech-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.VPSidebarItem .link:hover::before,
+.VPSidebarItem .link.active::before {
+  opacity: 0.1;
+}
+
+.VPSidebarItem .link:hover {
+  transform: translateX(4px);
+}
+
+/* 页面内容区域优化 */
+.vp-doc {
+  position: relative;
+}
+
+.vp-doc::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, 
+    rgba(99, 102, 241, 0.02) 0%, 
+    transparent 50%),
+    radial-gradient(circle at 80% 20%, 
+    rgba(168, 85, 247, 0.02) 0%, 
+    transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .VPButton:hover {
+    transform: translateY(-1px);
+  }
+  
+  .VPFeatures .VPFeature:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .vp-doc .custom-block:hover,
+  .demo-container:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* 加载动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.VPFeature,
+.vp-doc .custom-block,
+.demo-container {
+  animation: fadeInUp 0.6s var(--ease-out-quart) forwards;
+}
+
+.VPFeature:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.VPFeature:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* ===== 主页优化样式 ===== */
+
+/* Hero 区域优化 */
+.VPHero {
+  position: relative;
+  overflow: hidden;
+}
+
+.VPHero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.VPHero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero 标题优化 */
+.VPHero .name {
+  background: var(--hero-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+}
+
+.VPHero .text {
+  color: var(--vp-c-text-1) !important;
+  font-weight: 600 !important;
+}
+
+.VPHero .tagline {
+  color: var(--vp-c-text-2) !important;
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+/* Hero 图片优化 */
+.VPHero .image {
+  filter: drop-shadow(0 20px 40px rgba(102, 126, 234, 0.2));
+  transition: all 0.4s var(--ease-out-quart);
+}
+
+.VPHero .image:hover {
+  transform: translateY(-8px) scale(1.05);
+  filter: drop-shadow(0 30px 60px rgba(102, 126, 234, 0.3));
+}
+
+/* Hero 按钮优化 */
+.VPHero .actions {
+  gap: 16px !important;
+}
+
+.VPHero .action {
+  transition: all 0.3s var(--ease-out-quart) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.VPHero .action.brand {
+  background: var(--hero-gradient) !important;
+  border: none !important;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3) !important;
+}
+
+.VPHero .action.brand:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4) !important;
+}
+
+.VPHero .action.alt {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(102, 126, 234, 0.2) !important;
+  backdrop-filter: blur(12px) !important;
+  color: var(--vp-c-text-1) !important;
+}
+
+.VPHero .action.alt:hover {
+  transform: translateY(-2px) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(102, 126, 234, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Features 区域优化 */
+.VPFeatures {
+  position: relative;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  margin: 48px auto;
+  padding: 48px 24px;
+  max-width: 1200px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.VPFeature {
+  background: var(--feature-bg) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(12px) !important;
+  transition: all 0.4s var(--ease-out-quart) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.VPFeature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--hero-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.VPFeature:hover::before {
+  opacity: 0.05;
+}
+
+.VPFeature:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(102, 126, 234, 0.3) !important;
+}
+
+.VPFeature .title {
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  margin-bottom: 12px !important;
+}
+
+.VPFeature .details {
+  line-height: 1.6 !important;
+  color: var(--vp-c-text-2) !important;
+}
+
+/* 暗色模式适配 */
+.dark .VPFeatures {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.4) 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .VPFeature {
+  background: var(--feature-bg-dark) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .VPHero .action.alt {
+  background: rgba(26, 26, 26, 0.9) !important;
+  color: var(--vp-c-text-1) !important;
+}
+
+.dark .VPHero .action.alt:hover {
+  background: rgba(26, 26, 26, 0.95) !important;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .VPFeatures {
+    margin: 32px 16px;
+    padding: 32px 16px;
+    border-radius: 16px;
+  }
+  
+  .VPFeature:hover {
+    transform: translateY(-4px) scale(1.01) !important;
+  }
+  
+  .VPHero .tagline {
+    font-size: 1.1rem !important;
+  }
+}
+
+.VPFeature:nth-child(4) {
+  animation-delay: 0.3s;
+}

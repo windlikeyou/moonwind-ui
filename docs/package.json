@@ -1,0 +1,21 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Hi-Kits documentation site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "@vitepress-demo-preview/component": "^2.5.2",
+    "@vitepress-demo-preview/plugin": "^1.4.1",
+    "vitepress": "^1.0.0-rc.39",
+    "vue": "^3.4.15"
+  },
+  "dependencies": {
+    "hi-kits": "workspace:*"
+  }
+}

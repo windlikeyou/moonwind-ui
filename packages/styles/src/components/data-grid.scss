@@ -1,0 +1,234 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// DataGrid 组件样式
+@include b(data-grid) {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--#{$namespace}-color-white);
+  overflow: hidden;
+
+  // ag grid
+  .ag-theme-alpine {
+    --ag-background-color: var(--#{$namespace}-color-background);
+    --ag-foreground-color: var(--#{$namespace}-color-text);
+    --ag-border-color: var(--#{$namespace}-color-border-light);
+    --ag-header-background-color: var(--#{$namespace}-color-fill-light);
+    --ag-header-foreground-color: var(--#{$namespace}-color-black);
+    --ag-odd-row-background-color: var(--#{$namespace}-color-background);
+    --ag-even-row-background-color: var(--#{$namespace}-color-fill-lighter);
+    --ag-row-hover-color: var(--#{$namespace}-color-fill-light);
+    --ag-selected-row-background-color: var(
+      --#{$namespace}-color-primary-light
+    );
+    --ag-font-family: var(--#{$namespace}-font-family);
+    --ag-font-size: var(--#{$namespace}-font-size-sm);
+    --ag-grid-size: 4px;
+    --ag-list-item-height: 36px;
+    --ag-header-height: 40px;
+    --ag-row-height: 36px;
+  }
+
+  .ag-root-wrapper {
+    border: unset;
+    border-radius: unset;
+  }
+
+  @include m(small) {
+    font-size: var(--#{$namespace}-font-size-xs);
+
+    @include e(container) {
+      .ag-theme-alpine {
+        --ag-grid-size: 3px;
+        --ag-list-item-height: 28px;
+      }
+    }
+  }
+
+  @include m(middle) {
+    font-size: var(--#{$namespace}-font-size-sm);
+
+    @include e(container) {
+      .ag-theme-alpine {
+        --ag-grid-size: 4px;
+        --ag-list-item-height: 32px;
+      }
+    }
+  }
+
+  @include m(large) {
+    font-size: var(--#{$namespace}-font-size-md);
+
+    @include e(container) {
+      .ag-theme-alpine {
+        --ag-grid-size: 6px;
+        --ag-list-item-height: 40px;
+      }
+    }
+  }
+
+  // 元素
+  @include e(title) {
+    padding: var(--#{$namespace}-spacing-md);
+    font-size: var(--#{$namespace}-font-size-lg);
+    font-weight: var(--#{$namespace}-font-weight-medium);
+    color: var(--#{$namespace}-color-text);
+    border-bottom: 1px solid var(--#{$namespace}-color-border-light);
+  }
+
+  @include e(toolbar) {
+    @include center-flex;
+    justify-content: space-between;
+    padding: var(--#{$namespace}-spacing-md);
+    background-color: var(--#{$namespace}-color-fill-light);
+    border-bottom: 1px solid var(--#{$namespace}-color-border-light);
+
+    @include e(left) {
+      @include center-flex;
+      gap: var(--#{$namespace}-spacing-sm);
+    }
+
+    @include e(right) {
+      @include center-flex;
+      gap: var(--#{$namespace}-spacing-sm);
+    }
+  }
+
+  @include e(quick-filter) {
+    @include input-base;
+    width: 200px;
+    margin-right: var(--#{$namespace}-spacing-sm);
+  }
+
+  @include e(btn) {
+    @include button-base;
+    @include button-size(
+      var(--#{$namespace}-component-size-sm),
+      var(--#{$namespace}-spacing-sm),
+      var(--#{$namespace}-font-size-xs)
+    );
+    @include button-variant(
+      var(--#{$namespace}-color-text),
+      var(--#{$namespace}-color-background),
+      var(--#{$namespace}-color-border)
+    );
+  }
+
+  @include e(checkbox) {
+    margin-right: var(--#{$namespace}-spacing-xs);
+  }
+
+  @include e(container) {
+    position: relative;
+    min-height: 300px;
+  }
+
+  @include e(loading) {
+    @include center-absolute;
+    @include center-flex;
+    flex-direction: column;
+    background-color: rgba(var(--#{$namespace}-color-background-rgb), 0.8);
+    z-index: 10;
+
+    @include e(spinner) {
+      @include loading-spinner(32px);
+      margin-bottom: var(--#{$namespace}-spacing-sm);
+    }
+
+    @include e(text) {
+      color: var(--#{$namespace}-color-text-secondary);
+      font-size: var(--#{$namespace}-font-size-sm);
+    }
+  }
+
+  @include e(empty) {
+    @include center-flex;
+    flex-direction: column;
+    padding: var(--#{$namespace}-spacing-xl);
+    color: var(--#{$namespace}-color-text-secondary);
+
+    @include e(icon) {
+      font-size: 48px;
+      margin-bottom: var(--#{$namespace}-spacing-md);
+      opacity: 0.5;
+    }
+
+    @include e(text) {
+      font-size: var(--#{$namespace}-font-size-md);
+    }
+  }
+
+  @include e(pagination) {
+    @include center-flex;
+    justify-content: space-between;
+    padding: var(--#{$namespace}-spacing-md);
+    border-top: 1px solid var(--#{$namespace}-color-border-light);
+    background-color: var(--#{$namespace}-color-fill-light);
+
+    @include e(info) {
+      color: var(--#{$namespace}-color-text-secondary);
+      font-size: var(--#{$namespace}-font-size-sm);
+    }
+
+    @include e(controls) {
+      @include center-flex;
+      gap: var(--#{$namespace}-spacing-sm);
+    }
+
+    @include e(btn) {
+      @include button-base;
+      @include button-size(
+        var(--#{$namespace}-component-size-sm),
+        var(--#{$namespace}-spacing-sm),
+        var(--#{$namespace}-font-size-xs)
+      );
+      @include button-variant(
+        var(--#{$namespace}-color-text),
+        var(--#{$namespace}-color-background),
+        var(--#{$namespace}-color-border)
+      );
+
+      @include when(disabled) {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    @include e(current) {
+      @include center-flex;
+      min-width: 32px;
+      height: var(--#{$namespace}-component-size-sm);
+      padding: 0 var(--#{$namespace}-spacing-xs);
+      background-color: var(--#{$namespace}-color-primary);
+      color: var(--#{$namespace}-color-white);
+      border-radius: var(--#{$namespace}-border-radius-sm);
+      font-size: var(--#{$namespace}-font-size-xs);
+    }
+
+    @include e(size) {
+      @include input-base;
+      width: 80px;
+      height: var(--#{$namespace}-component-size-sm);
+      padding: 0 var(--#{$namespace}-spacing-xs);
+      font-size: var(--#{$namespace}-font-size-xs);
+    }
+  }
+
+  @include e(footer) {
+    @include center-flex;
+    justify-content: space-between;
+    padding: var(--#{$namespace}-spacing-md);
+    background-color: var(--#{$namespace}-color-fill-light);
+    border-top: 1px solid var(--#{$namespace}-color-border-light);
+
+    @include e(summary) {
+      color: var(--#{$namespace}-color-text-secondary);
+      font-size: var(--#{$namespace}-font-size-sm);
+    }
+
+    @include e(actions) {
+      @include center-flex;
+      gap: var(--#{$namespace}-spacing-sm);
+    }
+  }
+}

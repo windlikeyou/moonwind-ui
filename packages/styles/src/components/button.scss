@@ -1,0 +1,108 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Button 组件样式
+@include b(button) {
+  @include button-base;
+  
+  // 尺寸修饰符
+  @include m(small) {
+    @include button-size(
+      var(--#{$namespace}-component-size-sm),
+      var(--#{$namespace}-spacing-sm),
+      var(--#{$namespace}-font-size-xs)
+    );
+  }
+  
+  @include m(medium) {
+    @include button-size(
+      var(--#{$namespace}-component-size-md),
+      var(--#{$namespace}-spacing-md),
+      var(--#{$namespace}-font-size-sm)
+    );
+  }
+  
+  @include m(large) {
+    @include button-size(
+      var(--#{$namespace}-component-size-lg),
+      var(--#{$namespace}-spacing-lg),
+      var(--#{$namespace}-font-size-md)
+    );
+  }
+  
+  // 类型修饰符
+  @include m(default) {
+    @include button-variant(
+      var(--#{$namespace}-color-text),
+      var(--#{$namespace}-color-background),
+      var(--#{$namespace}-color-border)
+    );
+  }
+  
+  @include m(primary) {
+    @include button-variant(
+      var(--#{$namespace}-color-white),
+      var(--#{$namespace}-color-primary),
+      var(--#{$namespace}-color-primary)
+    );
+  }
+  
+  @include m(success) {
+    @include button-variant(
+      var(--#{$namespace}-color-white),
+      var(--#{$namespace}-color-success),
+      var(--#{$namespace}-color-success)
+    );
+  }
+  
+  @include m(warning) {
+    @include button-variant(
+      var(--#{$namespace}-color-white),
+      var(--#{$namespace}-color-warning),
+      var(--#{$namespace}-color-warning)
+    );
+  }
+  
+  @include m(danger) {
+    @include button-variant(
+      var(--#{$namespace}-color-white),
+      var(--#{$namespace}-color-danger),
+      var(--#{$namespace}-color-danger)
+    );
+  }
+  
+  // 状态修饰符
+  @include when(disabled) {
+    cursor: not-allowed;
+    opacity: 0.6;
+    
+    &:hover,
+    &:active {
+      color: inherit;
+      background-color: inherit;
+      border-color: inherit;
+    }
+  }
+  
+  @include when(loading) {
+    cursor: default;
+    pointer-events: none;
+    
+    &::before {
+      content: '';
+      @include loading-spinner(14px);
+      margin-right: var(--#{$namespace}-spacing-xs);
+    }
+  }
+  
+  // 形状修饰符
+  @include m(round) {
+    border-radius: var(--#{$namespace}-border-radius-round);
+  }
+  
+  @include m(circle) {
+    border-radius: 50%;
+    width: var(--#{$namespace}-component-size-md);
+    padding: 0;
+  }
+}

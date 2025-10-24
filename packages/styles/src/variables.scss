@@ -1,0 +1,126 @@
+// Hi-Kits 全局样式变量
+// ================================
+
+// 命名空间前缀
+$namespace: 'hi' !default;
+
+// 颜色系统
+// --------------------------------
+$color-primary: #1890ff !default;
+$color-success: #52c41a !default;
+$color-warning: #faad14 !default;
+$color-error: #ff4d4f !default;
+$color-info: #1890ff !default;
+
+// 中性色
+$color-white: #ffffff !default;
+$color-black: #000000 !default;
+$text-color-primary: #262626 !default;
+$text-color-secondary: #8c8c8c !default;
+$text-color-disabled: #bfbfbf !default;
+$border-color-base: #d9d9d9 !default;
+$border-color-light: #f0f0f0 !default;
+$background-color-light: #fafafa !default;
+$background-color-secondary: #f5f5f5 !default;
+$background-color-base: #ffffff !default;
+
+// 字体系统
+// --------------------------------
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !default;
+$font-size-xs: 12px !default;
+$font-size-sm: 14px !default;
+$font-size-base: 14px !default;
+$font-size-md: 16px !default;
+$font-size-lg: 18px !default;
+$font-size-xl: 20px !default;
+
+// 行高
+$line-height-xs: 1.2 !default;
+$line-height-sm: 1.4 !default;
+$line-height-base: 1.5 !default;
+$line-height-md: 1.5 !default;
+$line-height-lg: 1.6 !default;
+
+// 字重
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+// 间距系统
+// --------------------------------
+$spacing-xs: 4px !default;
+$spacing-sm: 8px !default;
+$spacing-md: 12px !default;
+$spacing-lg: 16px !default;
+$spacing-xl: 20px !default;
+$spacing-xxl: 24px !default;
+
+// 圆角
+// --------------------------------
+$border-radius-xs: 2px !default;
+$border-radius-sm: 4px !default;
+$border-radius-base: 4px !default;
+$border-radius-md: 6px !default;
+$border-radius-lg: 8px !default;
+$border-radius-xl: 12px !default;
+
+// 阴影
+// --------------------------------
+$box-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03) !default;
+$box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !default;
+$box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15) !default;
+$box-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07) !default;
+$box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1) !default;
+$box-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15) !default;
+
+// 过渡动画
+// --------------------------------
+$transition-duration-fast: 0.1s !default;
+$transition-duration-base: 0.2s !default;
+$transition-duration-slow: 0.3s !default;
+$transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !default;
+
+// Z-index 层级
+// --------------------------------
+$z-index-dropdown: 1000 !default;
+$z-index-sticky: 1020 !default;
+$z-index-fixed: 1030 !default;
+$z-index-modal-backdrop: 1040 !default;
+$z-index-modal: 1050 !default;
+$z-index-popover: 1060 !default;
+$z-index-tooltip: 1070 !default;
+
+// DataGrid 特定变量
+// --------------------------------
+$data-grid-header-bg: $background-color-light !default;
+$data-grid-row-hover-bg: $background-color-secondary !default;
+$data-grid-row-selected-bg: #e6f7ff !default;
+$data-grid-border-color: $border-color-light !default;
+$data-grid-toolbar-bg: $background-color-base !default;
+$data-grid-loading-bg: rgba(255, 255, 255, 0.8) !default;
+
+// 组件尺寸
+// --------------------------------
+$size-xs: 24px !default;
+$size-sm: 28px !default;
+$size-base: 32px !default;
+$size-md: 32px !default;
+$size-lg: 36px !default;
+$size-xl: 40px !default;
+
+// 断点系统
+// --------------------------------
+$breakpoints: (
+  xs: 480px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1600px
+) !default;
+
+$breakpoint-xs: 480px !default;
+$breakpoint-sm: 768px !default;
+$breakpoint-md: 992px !default;
+$breakpoint-lg: 1200px !default;
+$breakpoint-xl: 1600px !default;

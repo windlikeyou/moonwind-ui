@@ -1,0 +1,39 @@
+{
+  "name": "@hi-kits/hooks",
+  "version": "1.0.0",
+  "description": "Hi-Kits Vue composition functions and hooks",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "vite build && tsc --project tsconfig.build.json",
+    "dev": "vite build --watch"
+  },
+  "keywords": [
+    "vue",
+    "hooks",
+    "composition",
+    "composables",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hi-Kits 示例</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .demo-section {
+      margin-bottom: 40px;
+    }
+    .demo-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .demo-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <h1>Hi-Kits 组件库示例</h1>
+      
+      <div class="demo-section">
+        <h2>基础按钮</h2>
+        <div class="demo-row">
+          <hk-button>默认按钮</hk-button>
+          <hk-button type="primary">主要按钮</hk-button>
+          <hk-button type="success">成功按钮</hk-button>
+          <hk-button type="warning">警告按钮</hk-button>
+          <hk-button type="danger">危险按钮</hk-button>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>按钮尺寸</h2>
+        <div class="demo-row">
+          <hk-button size="small">小型按钮</hk-button>
+          <hk-button>默认按钮</hk-button>
+          <hk-button size="large">大型按钮</hk-button>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>按钮状态</h2>
+        <div class="demo-row">
+          <hk-button disabled>禁用按钮</hk-button>
+          <hk-button loading>加载中</hk-button>
+          <hk-button round>圆角按钮</hk-button>
+          <hk-button circle>圆</hk-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+    
+    // 简单的按钮组件实现（用于演示）
+    const HkButton = {
+      name: 'HkButton',
+      props: {
+        type: {
+          type: String,
+          default: 'default'
+        },
+        size: {
+          type: String,
+          default: 'medium'
+        },
+        disabled: Boolean,
+        loading: Boolean,
+        round: Boolean,
+        circle: Boolean
+      },
+      template: `
+        <button 
+          :class="buttonClasses"
+          :disabled="disabled || loading"
+          @click="$emit('click', $event)"
+        >
+          <span v-if="loading">⏳</span>
+          <slot v-else></slot>
+        </button>
+      `,
+      computed: {
+        buttonClasses() {
+          return [
+            'hk-button',
+            `hk-button--${this.type}`,
+            `hk-button--${this.size}`,
+            {
+              'is-disabled': this.disabled,
+              'is-loading': this.loading,
+              'is-round': this.round,
+              'is-circle': this.circle
+            }
+          ]
+        }
+      }
+    }
+
+    const app = createApp({})
+    app.component('HkButton', HkButton)
+    app.mount('#app')
+  </script>
+
+  <style>
+    /* Hi-Kits Button 样式 */
+    .hk-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 1px solid #dcdfe6;
+      background-color: #ffffff;
+      color: #606266;
+      cursor: pointer;
+      transition: all 0.3s;
+      user-select: none;
+      outline: none;
+    }
+
+    .hk-button:hover {
+      color: #409eff;
+      border-color: #c6e2ff;
+      background-color: #ecf5ff;
+    }
+
+    .hk-button--primary {
+      background-color: #409eff;
+      border-color: #409eff;
+      color: #ffffff;
+    }
+
+    .hk-button--primary:hover {
+      background-color: #66b1ff;
+      border-color: #66b1ff;
+    }
+
+    .hk-button--success {
+      background-color: #67c23a;
+      border-color: #67c23a;
+      color: #ffffff;
+    }
+
+    .hk-button--success:hover {
+      background-color: #85ce61;
+      border-color: #85ce61;
+    }
+
+    .hk-button--warning {
+      background-color: #e6a23c;
+      border-color: #e6a23c;
+      color: #ffffff;
+    }
+
+    .hk-button--warning:hover {
+      background-color: #ebb563;
+      border-color: #ebb563;
+    }
+
+    .hk-button--danger {
+      background-color: #f56c6c;
+      border-color: #f56c6c;
+      color: #ffffff;
+    }
+
+    .hk-button--danger:hover {
+      background-color: #f78989;
+      border-color: #f78989;
+    }
+
+    .hk-button--small {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .hk-button--large {
+      padding: 12px 20px;
+      font-size: 16px;
+    }
+
+    .hk-button.is-disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .hk-button.is-round {
+      border-radius: 20px;
+    }
+
+    .hk-button.is-circle {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+    }
+  </style>
+</body>
+</html>

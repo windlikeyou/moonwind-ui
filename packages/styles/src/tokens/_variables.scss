@@ -1,0 +1,118 @@
+@use "../variables" as *;
+
+:root {
+  // Brand
+  --#{$namespace}-color-primary: #3b82f6;
+  --#{$namespace}-color-primary-hover: #2563eb;
+  --#{$namespace}-color-primary-active: #1d4ed8;
+  --#{$namespace}-color-success: #10b981;
+  --#{$namespace}-color-warning: #f59e0b;
+  --#{$namespace}-color-error: #ef4444;
+  --#{$namespace}-color-danger: #ef4444;
+  --#{$namespace}-color-info: #06b6d4;
+
+  // Neutral
+  --#{$namespace}-color-white: #ffffff;
+  --#{$namespace}-color-black: #000000;
+  --#{$namespace}-color-text: #374151;
+  --#{$namespace}-color-background: #ffffff;
+  --#{$namespace}-color-border: #d1d5db;
+  --#{$namespace}-color-border-light: #f0f0f0;
+  
+  // Fill colors for backgrounds
+  --#{$namespace}-color-fill-light: #f2f3f5;
+  --#{$namespace}-color-fill-lighter: #fcfcfc;
+  
+  // Primary color variants
+  --#{$namespace}-color-primary-light: #dbeafe;
+  --#{$namespace}-color-gray-50: #f9fafb;
+  --#{$namespace}-color-gray-100: #f3f4f6;
+  --#{$namespace}-color-gray-200: #e5e7eb;
+  --#{$namespace}-color-gray-300: #d1d5db;
+  --#{$namespace}-color-gray-400: #9ca3af;
+  --#{$namespace}-color-gray-500: #6b7280;
+  --#{$namespace}-color-gray-600: #4b5563;
+  --#{$namespace}-color-gray-700: #374151;
+  --#{$namespace}-color-gray-800: #1f2937;
+  --#{$namespace}-color-gray-900: #111827;
+
+  // Typography
+  --#{$namespace}-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --#{$namespace}-font-size-xs: 0.75rem;
+  --#{$namespace}-font-size-sm: 0.875rem;
+  --#{$namespace}-font-size-base: 1rem;
+  --#{$namespace}-font-size-md: 1rem;
+  --#{$namespace}-font-size-lg: 1.125rem;
+  --#{$namespace}-font-size-xl: 1.25rem;
+  --#{$namespace}-font-size-2xl: 1.5rem;
+
+  // Spacing
+  --#{$namespace}-spacing-xs: 0.25rem;
+  --#{$namespace}-spacing-sm: 0.5rem;
+  --#{$namespace}-spacing-md: 0.75rem;
+  --#{$namespace}-spacing-lg: 1rem;
+  --#{$namespace}-spacing-1: 0.25rem;
+  --#{$namespace}-spacing-2: 0.5rem;
+  --#{$namespace}-spacing-3: 0.75rem;
+  --#{$namespace}-spacing-4: 1rem;
+  --#{$namespace}-spacing-5: 1.25rem;
+  --#{$namespace}-spacing-6: 1.5rem;
+  --#{$namespace}-spacing-8: 2rem;
+  --#{$namespace}-spacing-10: 2.5rem;
+  --#{$namespace}-spacing-12: 3rem;
+
+  // Component Sizes
+  --#{$namespace}-component-size-sm: 1.75rem;
+  --#{$namespace}-component-size-md: 2rem;
+  --#{$namespace}-component-size-lg: 2.25rem;
+
+  // Border Radius
+  --#{$namespace}-border-radius-round: 9999px;
+  --#{$namespace}-border-radius-sm: 0.125rem;
+  --#{$namespace}-border-radius-base: 0.25rem;
+  --#{$namespace}-border-radius-md: 0.375rem;
+  --#{$namespace}-border-radius-lg: 0.5rem;
+  --#{$namespace}-border-radius-xl: 0.75rem;
+  --#{$namespace}-border-radius-full: 9999px;
+
+  // Shadows
+  --#{$namespace}-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --#{$namespace}-shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --#{$namespace}-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --#{$namespace}-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  // Transitions
+  --#{$namespace}-transition-fast: 0.15s ease-in-out;
+  --#{$namespace}-transition-base: 0.2s ease-in-out;
+  --#{$namespace}-transition-slow: 0.3s ease-in-out;
+}
+
+// 深色主题
+:root[data-theme="dark"] {
+  --#{$namespace}-color-gray-50: #0b0d10;
+  --#{$namespace}-color-gray-100: #121418;
+  --#{$namespace}-color-gray-200: #171a1f;
+  --#{$namespace}-color-gray-300: #1e2229;
+  --#{$namespace}-color-gray-400: #2a2f39;
+  --#{$namespace}-color-gray-500: #373d4a;
+  --#{$namespace}-color-gray-600: #475067;
+  --#{$namespace}-color-gray-700: #596387;
+  --#{$namespace}-color-gray-800: #6c78a9;
+  --#{$namespace}-color-gray-900: #8190cf;
+  --#{$namespace}-color-primary: #60a5fa;
+  --#{$namespace}-color-primary-hover: #3b82f6;
+  --#{$namespace}-color-primary-active: #2563eb;
+  
+  // Dark theme specific colors
+  --#{$namespace}-color-text: #e5e7eb;
+  --#{$namespace}-color-background: #111827;
+  --#{$namespace}-color-border: #374151;
+  --#{$namespace}-color-border-light: #1f2937;
+  --#{$namespace}-color-fill-light: #1f2937;
+  --#{$namespace}-color-fill-lighter: #1e2229;
+  --#{$namespace}-color-primary-light: #1e3a8a;
+}

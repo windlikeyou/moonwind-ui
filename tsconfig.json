@@ -1,0 +1,25 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": [
+    "packages/**/*",
+    "docs/**/*"
+  ],
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@hi-kits/styles": ["packages/styles/dist"],
+      "@hi-kits/utils": ["packages/utils/dist"],
+      "@hi-kits/hooks": ["packages/hooks/dist"],
+      "@hi-kits/*": ["packages/*/src"],
+      "hi-kits": ["packages/hi-kits/src"]
+    },
+    "types": [
+      "node",
+      "vitest/globals"
+    ]
+  }
+}

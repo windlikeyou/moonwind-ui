@@ -22,7 +22,8 @@
     "clean": "rimraf packages/*/dist packages/*/node_modules docs/.vitepress/dist storybook-static",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "pnpm build && changeset publish"
+    "release": "pnpm build && changeset publish",
+    "prepare": "husky"
   },
   "keywords": [
     "vue",
@@ -40,6 +41,8 @@
   "packageManager": "pnpm@8.15.0",
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@storybook/addon-backgrounds": "^8.6.14",
     "@storybook/addon-controls": "^8.6.14",
     "@storybook/addon-docs": "^8.6.14",
@@ -63,6 +66,7 @@
     "eslint": "^8.56.0",
     "eslint-plugin-vue": "^9.20.0",
     "happy-dom": "^13.3.1",
+    "husky": "^9.1.7",
     "rimraf": "^5.0.5",
     "storybook": "^8.6.14",
     "typescript": "^5.3.3",

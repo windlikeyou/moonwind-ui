@@ -14,7 +14,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  text: '加载�?..'
+  text: '加载中..'
 })
 
 // 命名空间

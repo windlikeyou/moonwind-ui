@@ -1,0 +1,25 @@
+{
+  "name": "playground",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "moonwind-ui": "workspace:*",
+    "vue": "^3.4.15"
+  },
+  "devDependencies": {
+    "@moonwind-ui/components": "workspace:*",
+    "@moonwind-ui/hooks": "workspace:*",
+    "@moonwind-ui/styles": "workspace:*",
+    "@moonwind-ui/utils": "workspace:*",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vue-tsc": "^2.0.0"
+  }
+}

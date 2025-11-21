@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["src/**/*", "src/**/*.vue", "../packages/*/src/**/*"],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@moonwind-ui/components": ["../packages/components/src"],
+      "@moonwind-ui/hooks": ["../packages/hooks/src"],
+      "@moonwind-ui/utils": ["../packages/utils/src"],
+      "@moonwind-ui/styles": ["../packages/styles/src"],
+      "moonwind-ui": ["../packages/moonwind-ui/src/index.ts"]
+    }
+  }
+}

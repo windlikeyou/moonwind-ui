@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "pnpm --filter docs dev",
     "dev:with-watch": "concurrently \"pnpm --filter moonwind-ui dev\" \"powershell Start-Sleep 5; pnpm --filter docs dev\"",
+    "dev:playground": "pnpm --filter playground dev",
     "build": "pnpm build:packages && pnpm --filter moonwind-ui build",
     "build:packages": "pnpm --filter @moonwind-ui/styles build && pnpm --filter @moonwind-ui/utils build && pnpm --filter @moonwind-ui/hooks build && pnpm --filter @moonwind-ui/components build",
     "build:docs": "pnpm --filter docs build",

@@ -8,6 +8,7 @@
 // Import component styles
 @use './components/button.scss';
 @use './components/data-grid.scss';
+@use './components/icon.scss';
 
 // 强制使用 CSS 变量，防止被构建工具移除
 .#{$namespace}-css-variables-force {

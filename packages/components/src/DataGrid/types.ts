@@ -157,7 +157,7 @@ export type FetchFunction<T = any> = (params: {
 }) => Promise<FetchResult<T>>
 
 // DataGrid 组件 Props
-export interface DataGridProps<T = any> extends Omit<GridOptions<T>, 'columnDefs' | 'rowData' | 'pagination' | 'rowSelection' | 'api' | 'columnApi'> {
+export interface DataGridProps<T = any> extends Omit<GridOptions<T>, 'columnDefs' | 'rowData' | 'pagination' | 'rowSelection' | 'api' | 'columnApi' | 'siderBar'> {
   // 列定义
   columns: DataGridColumn<T>[]
 
@@ -192,7 +192,7 @@ export interface DataGridProps<T = any> extends Omit<GridOptions<T>, 'columnDefs
   bordered?: boolean
 
   // 表格大小
-  size?: 'small' | 'middle' | 'large'
+  size?: 'small' | 'medium' | 'large'
 
   // 空数据时显示的内容
   locale?: {
@@ -211,15 +211,7 @@ export interface DataGridProps<T = any> extends Omit<GridOptions<T>, 'columnDefs
   // 表格底部
   footer?: string | (() => VueNode)
 
-  // 工具栏配置（社区版替代 sidebar）
-  toolbar?: {
-    visible?: boolean
-    showColumnToggle?: boolean
-    showQuickFilter?: boolean
-    showReset?: boolean
-    placement?: 'top' | 'bottom'
-  }
-
+  siderBar?: boolean;
   // 展开行配置
   expandable?: {
     expandedRowKeys?: Key[]

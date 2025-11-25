@@ -56,3 +56,5 @@ storybook-static
 # Changeset
 .changeset/*.md
 !.changeset/config.json
+# icons
+packages/icons/src/*

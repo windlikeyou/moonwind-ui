@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "vite build && vue-tsc --project tsconfig.build.json",
+    "build": "pnpm generate && vite build && vue-tsc --project tsconfig.build.json",
     "generate": "esno scripts/generate.ts",
     "dev": "vite build --watch"
   },

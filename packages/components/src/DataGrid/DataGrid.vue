@@ -1,16 +1,5 @@
 ﻿<template>
   <div :class="[b(), dataGridClasses]" :style="containerStyle">
-    <!-- 工具栏（顶端） -->
-    <DataGridToolbar
-      v-if="toolbarPlacement === 'top'"
-      :config="props.toolbar"
-      :columns="props.columns"
-      :quick-filter-text="quickFilterText"
-      @quick-filter-change="handleQuickFilterChange"
-      @reset="handleReset"
-      @toggle-column="toggleColumnVisibility"
-    />
-
     <!-- 表格标题 -->
     <div v-if="title" :class="e('title')">
       <component :is="typeof title === 'function' ? title() : title" />
@@ -22,7 +11,8 @@
       <DataGridLoading :visible="actualLoading" />
 
       <!-- AG Grid 表格 -->
-      <AgGridVue
+      <div :class="e('container-table')">
+        <AgGridVue
         ref="agGridRef"
         class="ag-theme-alpine"
         :style="gridStyle"
@@ -41,7 +31,10 @@
         @cell-double-clicked="onCellDoubleClicked"
         v-bind="$attrs"
       />
-
+      <div v-if="siderBar" :class="e('container-sider')">
+        <DataGridSidebar />
+      </div>
+      </div>
       <!-- 空数据提示 -->
       <DataGridEmpty
         :visible="!actualLoading && (!currentData || currentData.length === 0)"
@@ -58,17 +51,6 @@
       :total="totalCount"
       @page-change="handlePageChange"
       @page-size-change="handlePageSizeChange"
-    />
-
-    <!-- 底部工具栏 -->
-    <DataGridToolbar
-      v-if="toolbarPlacement === 'bottom'"
-      :config="props.toolbar"
-      :columns="props.columns"
-      :quick-filter-text="quickFilterText"
-      @quick-filter-change="handleQuickFilterChange"
-      @reset="handleReset"
-      @toggle-column="toggleColumnVisibility"
     />
 
     <!-- 表格底部 -->
@@ -88,6 +70,8 @@ import {
   nextTick,
   withDefaults,
   type CSSProperties,
+  provide,
+  shallowRef,
 } from "vue";
 import { AgGridVue } from "ag-grid-vue3";
 import type {
@@ -103,7 +87,7 @@ import type {
 } from "ag-grid-community";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 // 导入子组件
-import DataGridToolbar from "./components/DataGridToolbar.vue";
+import DataGridSidebar from "./components/DataGridSidebar.vue";
 import DataGridPagination from "./components/DataGridPagination.vue";
 import DataGridLoading from "./components/DataGridLoading.vue";
 import DataGridEmpty from "./components/DataGridEmpty.vue";
@@ -119,6 +103,7 @@ import type {
   PaginationConfig,
 } from "./types";
 import { useNamespace } from "@moonwind-ui/hooks";
+import { GRID_INJECT_KEY } from "./utils";
 
 // 注册 AG Grid 社区模块
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -131,7 +116,7 @@ const props = withDefaults(defineProps<DataGridProps<T>>(), {
   loading: false,
   pagination: true,
   bordered: true,
-  size: "middle",
+  size: "medium",
   height: 400,
   rowKey: "id",
 });
@@ -144,8 +129,11 @@ const { b, e, m } = useNamespace("data-grid");
 
 // Refs
 const agGridRef = ref<any>();
-const gridApi = ref<GridApi<T> | null>(null);
-
+const gridApi = shallowRef<GridApi<T> | null>(null);
+provide(GRID_INJECT_KEY, computed(() => ({
+  api: gridApi.value,
+  columns: props.columns
+})))
 // 响应式数据
 const currentData = ref<T[]>([]);
 const currentPage = ref(1);
@@ -211,9 +199,6 @@ const paginationConfig = computed((): PaginationConfig | null => {
 const totalPages = computed(() => {
   return Math.ceil(totalCount.value / currentPageSize.value) || 1;
 });
-
-const toolbarPlacement = computed(() => props.toolbar?.placement ?? "top");
-
 // 监听快速过滤输入
 watch(quickFilterText, (val) => {
   (gridApi.value as any)?.setGridOption?.("quickFilterText", val);
@@ -281,7 +266,7 @@ const gridOptions = computed(() => {
         return String(rowKey(params.data));
       }
       return String(params.data[rowKey as keyof T]);
-    },
+    }
   };
 
   const agGridProps = [
@@ -374,20 +359,6 @@ const handleReset = () => {
       .getColumnState()
       ?.map((s: any) => ({ ...s, hide: false }));
     if (state) gridApi.value.applyColumnState({ state });
-  }
-};
-
-const toggleColumnVisibility = (col: DataGridColumn) => {
-  const field = String(col.field);
-  const isHidden = !!col.hide;
-  col.hide = !isHidden;
-
-  if (gridApi.value) {
-    const state = gridApi.value.getColumnState();
-    const next = state.map((s: any) =>
-      s.colId === field ? { ...s, hide: !isHidden } : s
-    );
-    gridApi.value.applyColumnState({ state: next });
   }
 };
 

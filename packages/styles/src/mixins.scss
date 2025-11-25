@@ -68,11 +68,11 @@
 }
 
 // 玻璃拟态混入
-@mixin glass-effect($blur: var(--mw-glass-blur), $opacity: 0.7) {
+@mixin glass-effect($blur: var(--m-glass-blur), $opacity: 0.7) {
   background: rgba(255, 255, 255, $opacity);
   backdrop-filter: blur($blur);
   -webkit-backdrop-filter: blur($blur);
-  border: 1px solid var(--mw-glass-border);
+  border: 1px solid var(--m-glass-border);
   
   html.dark & {
     background: rgba(30, 41, 59, $opacity);
@@ -80,10 +80,10 @@
 }
 
 // 渐变边框混入
-@mixin gradient-border($gradient: var(--mw-gradient-primary), $radius: var(--mw-radius-md)) {
+@mixin gradient-border($gradient: var(--m-gradient-primary), $radius: var(--m-radius-md)) {
   position: relative;
   border-radius: $radius;
-  background: var(--mw-color-bg-surface);
+  background: var(--m-color-bg-surface);
   
   &::before {
     content: '';
@@ -105,13 +105,12 @@
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  border-radius: var(--mw-radius-md);
+  border-radius: var(--m-radius-md);
   font-weight: 500;
-  line-height: 1.5;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: var(--mw-transition-base);
+  transition: var(--m-transition-base);
   user-select: none;
   outline: none;
   position: relative;
@@ -137,7 +136,7 @@
   &:hover:not(:disabled) {
     filter: brightness(1.1);
     transform: translateY(-1px);
-    box-shadow: var(--mw-shadow-md);
+    box-shadow: var(--m-shadow-md);
   }
   
   &:active:not(:disabled) {
@@ -158,11 +157,11 @@
   }
   
   &::-webkit-scrollbar-thumb {
-    background: var(--mw-color-text-tertiary);
+    background: var(--m-color-text-tertiary);
     border-radius: $width;
     
     &:hover {
-      background: var(--mw-color-primary);
+      background: var(--m-color-primary);
     }
   }
 }

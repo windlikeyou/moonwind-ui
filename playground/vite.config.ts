@@ -11,7 +11,8 @@ export default defineConfig({
       '@moonwind-ui/utils': resolve(__dirname, '../packages/utils/src'),
       '@moonwind-ui/styles': resolve(__dirname, '../packages/styles/src'),
       '@moonwind-ui/icons': resolve(__dirname, '../packages/icons/src/index.ts'),
-      'moonwind-ui': resolve(__dirname, '../packages/moonwind-ui/src/index.ts')
+      'moonwind-ui': resolve(__dirname, '../packages/moonwind-ui/src/index.ts'),
+      '@': resolve(__dirname, '../packages/components/src')
     }
   }
 })

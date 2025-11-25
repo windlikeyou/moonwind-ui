@@ -23,6 +23,7 @@
         <IconMinus />
         <IconEdit />
         <IconDelete />
+        <IconColumn />
       </div>
     </div>
 
@@ -32,7 +33,7 @@
         :columns="columns"
         :data-source="dataSource"
         height="300px"
-        side-bar="columns"
+        sider-bar
       />
     </div>
   </div>
@@ -40,18 +41,21 @@
 
 <script setup lang="ts">
 import { MButton, MDataGrid } from 'moonwind-ui'
-import { IconCheck, IconClose, IconLoading, IconSearch, IconPlus, IconMinus, IconEdit, IconDelete } from '@moonwind-ui/icons'
+import { IconCheck, IconClose, IconLoading, IconSearch, IconPlus, IconMinus, IconEdit, IconDelete, IconColumn } from '@moonwind-ui/icons'
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 80 },
   { field: 'name', headerName: 'Name', width: 120 },
-  { field: 'role', headerName: 'Role', width: 150 }
+  { field: 'role', headerName: 'Role', width: 150 },
+  { field: 'age', headerName: 'Age', width: 150 },
+  { field: 'sex', headerName: 'Sex', width: 150 },
+  { field: 'address', headerName: 'Address', width: 150 }
 ]
 
 const dataSource = [
-  { id: 1, name: 'Alice', role: 'Developer' },
-  { id: 2, name: 'Bob', role: 'Designer' },
-  { id: 3, name: 'Charlie', role: 'Manager' }
+  { id: 1, name: 'Alice', role: 'Developer', age: 25, sex: 'Female', address: '123 Main St' },
+  { id: 2, name: 'Bob', role: 'Designer', age: 30, sex: 'Male', address: '456 Elm St' },
+  { id: 3, name: 'Charlie', role: 'Manager', age: 35, sex: 'Male', address: '789 Oak St' }
 ]
 </script>
 

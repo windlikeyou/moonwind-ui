@@ -26,10 +26,12 @@
   },
   "dependencies": {
     "@moonwind-ui/hooks": "workspace:*",
+    "@moonwind-ui/icons": "workspace:*",
     "@moonwind-ui/styles": "workspace:*",
     "@moonwind-ui/utils": "workspace:*",
     "ag-grid-community": "^34.3.0",
-    "ag-grid-vue3": "^34.3.0"
+    "ag-grid-vue3": "^34.3.0",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",

@@ -1,8 +1,0 @@
-export { default as IconCheck } from './components/IconCheck.vue'
-export { default as IconClose } from './components/IconClose.vue'
-export { default as IconDelete } from './components/IconDelete.vue'
-export { default as IconEdit } from './components/IconEdit.vue'
-export { default as IconLoading } from './components/IconLoading.vue'
-export { default as IconMinus } from './components/IconMinus.vue'
-export { default as IconPlus } from './components/IconPlus.vue'
-export { default as IconSearch } from './components/IconSearch.vue'

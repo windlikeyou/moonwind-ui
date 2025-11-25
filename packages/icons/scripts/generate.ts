@@ -35,7 +35,7 @@ const generate = async () => {
     
     const vueContent = `
 <template>
-  ${content.replace('<svg', '<svg class="m-icon"')}
+  ${content.replace('<svg', '<svg width="1em" height="1em" class="m-icon"')}
 </template>
 
 <script setup lang="ts">

@@ -6,56 +6,56 @@
   
   // 尺寸
   @include m(small) {
-    @include button-size(24px, 12px, 12px);
+    @include button-size(24px, 12px,var(--m-font-size-sm));
   }
   
   @include m(medium) {
-    @include button-size(32px, 16px, 14px);
+    @include button-size(32px, 16px, var(--m-font-size-sm));
   }
   
   @include m(large) {
-    @include button-size(40px, 20px, 16px);
+    @include button-size(40px, 20px, var(--m-font-size-base));
   }
   
   // 类型
   @include m(default) {
     @include button-variant(
-      var(--mw-color-text-primary),
-      var(--mw-color-bg-surface),
-      var(--mw-color-border)
+      var(--m-color-text-primary),
+      var(--m-color-bg-surface),
+      var(--m-color-border)
     );
     
     &:hover:not(:disabled) {
-      border-color: var(--mw-color-primary);
-      color: var(--mw-color-primary);
+      border-color: var(--m-color-primary);
+      color: var(--m-color-primary);
     }
   }
   
   @include m(primary) {
-    background: var(--mw-gradient-primary);
+    background: var(--m-gradient-primary);
     color: white;
     border: none;
     
     &:hover:not(:disabled) {
-      box-shadow: var(--mw-shadow-glow);
+      box-shadow: var(--m-shadow-glow);
     }
   }
   
   @include m(success) {
-    @include button-variant(white, var(--mw-color-success), var(--mw-color-success));
+    @include button-variant(white, var(--m-color-success), var(--m-color-success));
   }
   
   @include m(warning) {
-    @include button-variant(white, var(--mw-color-warning), var(--mw-color-warning));
+    @include button-variant(white, var(--m-color-warning), var(--m-color-warning));
   }
   
   @include m(danger) {
-    @include button-variant(white, var(--mw-color-error), var(--mw-color-error));
+    @include button-variant(white, var(--m-color-error), var(--m-color-error));
   }
   
   // 形状
   @include m(round) {
-    border-radius: var(--mw-radius-full);
+    border-radius: var(--m-radius-full);
   }
   
   @include m(circle) {

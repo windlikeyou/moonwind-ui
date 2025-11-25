@@ -1,36 +1,36 @@
 /* Moonwind UI Design System - VitePress Theme */
 :root {
   /* Brand Colors - Electric Violet / Indigo Gradient */
-  --mw-color-primary: #6366f1;
-  --mw-color-primary-hover: #4f46e5;
-  --mw-color-primary-active: #4338ca;
-  --mw-color-secondary: #ec4899;
-  --mw-color-accent: #06b6d4; /* Cyan */
-  --mw-color-success: #10b981;
-  --mw-color-warning: #f59e0b;
-  --mw-color-danger: #ef4444;
+  --m-color-primary: #6366f1;
+  --m-color-primary-hover: #4f46e5;
+  --m-color-primary-active: #4338ca;
+  --m-color-secondary: #ec4899;
+  --m-color-accent: #06b6d4; /* Cyan */
+  --m-color-success: #10b981;
+  --m-color-warning: #f59e0b;
+  --m-color-danger: #ef4444;
 
   /* Gradients */
-  --mw-gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  --mw-gradient-secondary: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-  --mw-gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-  --mw-gradient-hero: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
-  --mw-gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  --m-gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --m-gradient-secondary: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  --m-gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  --m-gradient-hero: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
+  --m-gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
   
   /* Dark Mode Gradients */
-  --mw-gradient-dark-glass: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.6));
+  --m-gradient-dark-glass: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.6));
 
   /* Animation Variables */
-  --mw-ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  --mw-ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --m-ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --m-ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
   
   /* VitePress Overrides */
-  --vp-c-brand-1: var(--mw-color-primary);
-  --vp-c-brand-2: var(--mw-color-primary-hover);
-  --vp-c-brand-3: var(--mw-color-primary-active);
+  --vp-c-brand-1: var(--m-color-primary);
+  --vp-c-brand-2: var(--m-color-primary-hover);
+  --vp-c-brand-3: var(--m-color-primary-active);
   
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: var(--mw-gradient-hero);
+  --vp-home-hero-name-background: var(--m-gradient-hero);
   
   --vp-c-bg: #ffffff;
   --vp-c-bg-alt: #f8fafc;
@@ -39,8 +39,8 @@
 .dark {
   --vp-c-bg: #0f172a; /* Slate 900 */
   --vp-c-bg-alt: #1e293b; /* Slate 800 */
-  --mw-color-primary: #818cf8;
-  --mw-color-primary-hover: #6366f1;
+  --m-color-primary: #818cf8;
+  --m-color-primary-hover: #6366f1;
 }
 
 /* Global Animation & Smoothness */
@@ -49,7 +49,7 @@ html {
 }
 
 * {
-  transition-timing-function: var(--mw-ease-out-quart);
+  transition-timing-function: var(--m-ease-out-quart);
 }
 
 /* Glassmorphism Navigation */
@@ -73,14 +73,14 @@ html {
 .VPButton {
   border-radius: 12px !important;
   font-weight: 600 !important;
-  transition: all 0.3s var(--mw-ease-out-quart) !important;
+  transition: all 0.3s var(--m-ease-out-quart) !important;
   overflow: hidden;
   position: relative;
   letter-spacing: 0.5px;
 }
 
 .VPButton.brand {
-  background: var(--mw-gradient-primary) !important;
+  background: var(--m-gradient-primary) !important;
   border: none !important;
   box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
@@ -120,7 +120,7 @@ html {
 }
 
 .VPHero .name {
-  background: var(--mw-gradient-hero);
+  background: var(--m-gradient-hero);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -160,7 +160,7 @@ html {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.5) !important;
   border-radius: 20px !important;
-  transition: all 0.4s var(--mw-ease-out-quart) !important;
+  transition: all 0.4s var(--m-ease-out-quart) !important;
 }
 
 .dark .VPFeature {
@@ -172,17 +172,17 @@ html {
   transform: translateY(-8px) scale(1.02);
   background: rgba(255, 255, 255, 0.9) !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  border-color: var(--mw-color-primary) !important;
+  border-color: var(--m-color-primary) !important;
 }
 
 .dark .VPFeature:hover {
   background: rgba(30, 41, 59, 0.8) !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  border-color: var(--mw-color-primary) !important;
+  border-color: var(--m-color-primary) !important;
 }
 
 .VPFeature .icon {
-  background: var(--mw-gradient-glass);
+  background: var(--m-gradient-glass);
   border-radius: 12px;
   padding: 12px;
   margin-bottom: 16px;
@@ -195,7 +195,7 @@ html {
 
 /* Content Styling */
 .vp-doc h1, .vp-doc h2 {
-  background: var(--mw-gradient-primary);
+  background: var(--m-gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -229,7 +229,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--mw-color-primary);
+  background: var(--m-color-primary);
 }
 
 /* Code Blocks */

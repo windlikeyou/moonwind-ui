@@ -6,7 +6,8 @@
       "@/*": ["./src/*"],
       "@moonwind-ui/styles": ["../styles/src"],
       "@moonwind-ui/utils": ["../utils/src"],
-      "@moonwind-ui/hooks": ["../hooks/src"]
+      "@moonwind-ui/hooks": ["../hooks/src"],
+      "@moonwind-ui/icons": ["../icons/src"]
     }
   },
   "include": [

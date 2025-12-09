@@ -1,54 +1,42 @@
 import type { StorybookConfig } from '@storybook/vue3-vite'
-import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import vue from '@vitejs/plugin-vue'
 
 const config: StorybookConfig = {
-  stories: [
-    '../packages/moonwind-ui/src/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-    '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'
-  ],
+  stories: ['../stories/**/*.stories.@(ts|tsx)'],
   addons: [
-    '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-links',
     '@storybook/addon-interactions',
-    '@storybook/addon-docs',
-    '@storybook/addon-controls',
     '@storybook/addon-viewport',
-    '@storybook/addon-backgrounds'
+    '@storybook/addon-backgrounds',
+    '@storybook/addon-docs',
+    '@storybook/addon-controls'
   ],
   framework: {
     name: '@storybook/vue3-vite',
     options: {}
   },
-  typescript: {
-    check: false
+  docs: {
+    autodocs: true
   },
-  viteFinal: async (config) => {
-    // 确保 Vue 插件存在
-    const hasVuePlugin = config.plugins?.some(plugin =>
-      plugin && typeof plugin === 'object' && 'name' in plugin && plugin.name === 'vite:vue'
-    )
-
-    if (!hasVuePlugin) {
-      config.plugins = config.plugins || []
-      config.plugins.push(vue())
+  viteFinal: async (cfg) => {
+    if ((cfg as any).mode === 'production') {
+      cfg.base = '/moonwind-ui/storybook/'
+    } else {
+      cfg.base = '/'
     }
-
-    return {
-      ...config,
-      resolve: {
-        ...config.resolve,
-        alias: {
-          ...config.resolve?.alias,
-          '@': resolve(__dirname, '../packages/components/src'),
-          'moonwind-ui': resolve(__dirname, '../packages/moonwind-ui/src'),
-          '@moonwind-ui/components': resolve(__dirname, '../packages/components/src'),
-          '@moonwind-ui/utils': resolve(__dirname, '../packages/utils/src'),
-          '@moonwind-ui/hooks': resolve(__dirname, '../packages/hooks/src'),
-          '@moonwind-ui/styles': resolve(__dirname, '../packages/styles/src')
-        }
-      }
+    cfg.resolve = cfg.resolve || {}
+    cfg.resolve.alias = {
+      ...(cfg.resolve.alias || {}),
+      '@moonwind-ui/styles': resolve(__dirname, '../packages/styles/src/index.ts'),
+      '@moonwind-ui/utils': resolve(__dirname, '../packages/utils/src/index.ts'),
+      '@moonwind-ui/hooks': resolve(__dirname, '../packages/hooks/src/index.ts'),
+      '@moonwind-ui/components': resolve(__dirname, '../packages/components/src/index.ts'),
+      'moonwind-ui': resolve(__dirname, '../packages/moonwind-ui/src/index.ts')
     }
+    cfg.plugins = [...(cfg.plugins || []), vue()]
+    return cfg
   }
 }
 

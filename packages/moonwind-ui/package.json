@@ -1,6 +1,6 @@
 {
   "name": "moonwind-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A modern Vue 3 component library",
   "type": "module",
   "main": "./dist/index.cjs",

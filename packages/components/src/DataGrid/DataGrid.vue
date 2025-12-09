@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div :class="[b(), dataGridClasses]" :style="containerStyle">
     <!-- 表格标题 -->
     <div v-if="title" :class="e('title')">
@@ -251,12 +251,12 @@ const gridOptions = computed(() => {
   const options: any = {
     theme: "legacy",
     rowSelection: props.rowSelection
-      ? props.rowSelection.type === "checkbox"
-        ? "multiple"
-        : "single"
+      ? {
+          mode: props.rowSelection.type === "checkbox" ? "multiRow" : "singleRow",
+          enableClickSelection: false,
+          enableSelectionWithoutKeys: props.rowSelection.type === "checkbox",
+        }
       : undefined,
-    suppressRowClickSelection: !!props.rowSelection,
-    rowMultiSelectWithClick: props.rowSelection?.type === "checkbox",
     pagination: false,
     paginationPageSize: undefined,
     suppressPaginationPanel: true,
@@ -554,3 +554,4 @@ onUnmounted(() => {
   gridApi.value = null;
 });
 </script>
+

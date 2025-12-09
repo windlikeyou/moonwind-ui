@@ -66,6 +66,8 @@ app.mount('#app')
 
 访问 [在线文档](https://windlikeyou.github.io/moonwind-ui/) 查看完整的组件文档和示例。
 
+访问 [Storybook](https://windlikeyou.github.io/moonwind-ui/storybook/) 查看组件的交互式示例。
+
 ## 🤝 贡献
 
 欢迎参与贡献！请查阅 [贡献指南](./DEVELOPMENT.md) 了解更多信息。
@@ -73,3 +75,4 @@ app.mount('#app')
 ## 📄 许可证
 
 本项目采用 [MIT](./LICENSE) 许可证。
+

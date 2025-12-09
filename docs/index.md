@@ -1,4 +1,4 @@
-﻿---
+---
 layout: home
 
 hero:
@@ -12,6 +12,9 @@ hero:
     - theme: alt
       text: 🧩 组件列表
       link: /components/
+    - theme: alt
+      text: 📚 Storybook
+      link: /storybook/
 
 features:
   - icon: 🎨
@@ -33,3 +36,4 @@ features:
     title: 开发者友好
     details: 详尽的文档，丰富的示例，友好的 API 设计。让开发变得简单而有趣。
 ---
+

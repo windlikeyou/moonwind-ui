@@ -40,6 +40,14 @@ jobs:
       - name: Build docs
         run: pnpm build:docs
 
+      - name: Build Storybook
+        run: pnpm build:storybook
+
+      - name: Merge Storybook into Docs
+        run: |
+          mkdir -p docs/.vitepress/dist/storybook
+          cp -r storybook-static/* docs/.vitepress/dist/storybook/
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
@@ -61,3 +69,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+

@@ -36,11 +36,54 @@
         sider-bar
       />
     </div>
+    <div class="card">
+      <h2>Space Demo: 水平方向</h2>
+      <div class="row">
+        <MSpace direction="horizontal">
+          <MButton>Default</MButton>
+          <MButton type="primary">Primary</MButton>
+          <MButton type="success">Success</MButton>
+          <MButton type="warning">Warning</MButton>
+          <MButton type="danger">Danger</MButton>
+        </MSpace>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Space Demo：垂直方向</h2>
+      <MSpace direction="vertical">
+          <MButton>Default</MButton>
+          <MButton type="primary">Primary</MButton>
+          <MButton type="success">Success</MButton>
+          <MButton type="warning">Warning</MButton>
+          <MButton type="danger">Danger</MButton>
+        </MSpace>
+    </div>
+    <div class="card">
+      <h2>Space Demo：垂直方向，居中对齐</h2>
+      <MSpace direction="vertical" align="center">
+          <MButton>Default</MButton>
+          <MButton type="primary">Primary</MButton>
+          <MButton type="success">Success</MButton>
+          <MButton type="warning">Warning</MButton>
+          <MButton type="danger">Danger</MButton>
+        </MSpace>
+    </div>
+    <div class="card">
+      <h2>Space Demo：垂直方向，基线对齐</h2>
+      <MSpace direction="vertical" align="baseline">
+          <MButton>Default</MButton>
+          <MButton type="primary">Primary</MButton>
+          <MButton type="success">Success</MButton>
+          <MButton type="warning">Warning</MButton>
+          <MButton type="danger">Danger</MButton>
+        </MSpace>
+    </div>
+
   </div>
 </template>
 
 <script setup lang="ts">
-import { MButton, MDataGrid } from 'moonwind-ui'
+import { MButton, MDataGrid, MSpace } from 'moonwind-ui'
 import { IconCheck, IconClose, IconLoading, IconSearch, IconPlus, IconMinus, IconEdit, IconDelete, IconColumn } from '@moonwind-ui/icons'
 
 const columns = [

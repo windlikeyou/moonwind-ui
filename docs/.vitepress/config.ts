@@ -25,10 +25,20 @@ export default defineConfig({
       ],
       '/components/': [
         {
-          text: '组件',
+          text: '布局组件',
           items: [
-            { text: '概览', link: '/components/' },
+            { text: 'Space 间距', link: '/components/space' }
+          ]
+        },
+        {
+          text: '基础组件',
+          items: [
             { text: 'Button 按钮', link: '/components/button' },
+          ]
+        },
+        {
+          text: '数据展示',
+          items: [
             { text: 'DataGrid 数据表格', link: '/components/data-grid' }
           ]
         }

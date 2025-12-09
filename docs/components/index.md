@@ -9,6 +9,13 @@ Moonwind UI 提供了丰富的组件库，涵盖了常见的业务场景。
 
 [查看详情](/components/button)
 
+## 布局组件
+
+### Space 间距
+设置组件之间的间距。
+
+[查看详情](/components/space)
+
 ## 数据展示
 
 ### DataGrid 数据表格

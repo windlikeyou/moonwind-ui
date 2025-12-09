@@ -8,7 +8,7 @@ export default defineConfig({
         index: resolve(__dirname, 'src/index.ts'),
         style: resolve(__dirname, 'src/index.scss')
       },
-      name: 'HiKitsStyles',
+      name: 'MoonwindStyles',
       formats: ['es', 'cjs']
     },
     rollupOptions: {

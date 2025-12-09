@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'HiKitsComponents',
+      name: 'MoonwindComponents',
       fileName: (format) => `index.${format === 'es' ? 'js' : format}`
     },
     rollupOptions: {

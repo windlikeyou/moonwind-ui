@@ -10,7 +10,7 @@ export default defineConfig({
         index: resolve(__dirname, 'src/index.ts'),
         style: resolve(__dirname, 'src/style.ts')
       },
-      name: 'HiKits',
+      name: 'MoonwindUi',
       fileName: (format, entryName) => {
         if (entryName === 'style') {
           return `style.${format === 'es' ? 'js' : format === 'umd' ? 'umd.cjs' : format}`

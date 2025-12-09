@@ -23,8 +23,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "sass": "^1.69.5",
-    "vite": "^5.0.0"
+    "sass": "^1.69.5"
   },
   "peerDependencies": {
     "ag-grid-community": "^31.0.0"

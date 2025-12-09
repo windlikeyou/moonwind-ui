@@ -15,7 +15,8 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'MoonwindIcons',
-      fileName: 'index'
+      fileName: (format) => `index.${format === 'es' ? 'js' : 'cjs'}`,
+      formats: ['es', 'cjs']
     },
     rollupOptions: {
       external: ['vue'],
@@ -27,3 +28,4 @@ export default defineConfig({
     }
   }
 })
+

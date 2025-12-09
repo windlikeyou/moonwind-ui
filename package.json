@@ -9,7 +9,7 @@
     "dev:with-watch": "concurrently \"pnpm --filter moonwind-ui dev\" \"powershell Start-Sleep 5; pnpm --filter docs dev\"",
     "dev:playground": "pnpm --filter playground dev",
     "build": "pnpm build:packages && pnpm --filter moonwind-ui build",
-    "build:packages": "pnpm --filter @moonwind-ui/styles build && pnpm --filter @moonwind-ui/utils build && pnpm --filter @moonwind-ui/hooks build && pnpm --filter @moonwind-ui/components build",
+    "build:packages": "pnpm --filter @moonwind-ui/styles build && pnpm --filter @moonwind-ui/utils build && pnpm --filter @moonwind-ui/hooks build && pnpm --filter @moonwind-ui/icons build && pnpm --filter @moonwind-ui/components build",
     "build:icons": "pnpm --filter @moonwind-ui/icons generate && pnpm --filter @moonwind-ui/icons build",
     "build:docs": "pnpm --filter docs build",
     "preview:docs": "pnpm --filter docs preview",
@@ -72,6 +72,7 @@
     "storybook": "^8.6.14",
     "typescript": "^5.3.3",
     "vite": "^5.0.12",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^1.2.0",
     "vue": "^3.4.15",
     "vue-tsc": "^3.1.0"

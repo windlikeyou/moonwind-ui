@@ -1,6 +1,6 @@
 {
   "name": "@moonwind-ui/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Moonwind-UI utility functions and helpers",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -32,4 +32,3 @@
     "vue": "^3.0.0"
   }
 }
-

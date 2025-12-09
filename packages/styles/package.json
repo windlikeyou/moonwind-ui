@@ -1,6 +1,6 @@
-  {
+{
   "name": "@moonwind-ui/styles",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Moonwind-UI design system styles and tokens",
   "main": "dist/index.css",
   "module": "dist/index.js",
@@ -8,7 +8,7 @@
   "files": [
     "dist",
     "src"
-],
+  ],
   "scripts": {
     "build": "vite build && npx tsc --project tsconfig.build.json",
     "dev": "vite build --watch"

@@ -1,6 +1,13 @@
 import { defineConfig } from 'vitepress'
 import { resolve } from 'path'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+import { createRequire } from 'module'
 import { componentPreview, containerPreview } from '@vitepress-demo-preview/plugin'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const require = createRequire(import.meta.url)
 
 export default defineConfig({
   title: 'Moonwind-UI',
@@ -51,11 +58,13 @@ export default defineConfig({
       preserveSymlinks: true,
       alias: {
         '@': resolve(__dirname, '../components/demos'),
-        '@moonwind-ui/styles': resolve(__dirname, '../../packages/styles/src'),
-        '@moonwind-ui/utils': resolve(__dirname, '../../packages/utils'),
-        '@moonwind-ui/hooks': resolve(__dirname, '../../packages/hooks'),
-        '@moonwind-ui/components': resolve(__dirname, '../../packages/components/src'),
-        'moonwind-ui': resolve(__dirname, '../../packages/moonwind-ui/src')
+        '@moonwind-ui/styles': resolve(__dirname, '../../packages/styles/src/index.ts'),
+        '@moonwind-ui/utils': resolve(__dirname, '../../packages/utils/src/index.ts'),
+        '@moonwind-ui/hooks': resolve(__dirname, '../../packages/hooks/src/index.ts'),
+        '@moonwind-ui/components': resolve(__dirname, '../../packages/components/src/index.ts'),
+        'moonwind-ui': resolve(__dirname, '../../packages/moonwind-ui/src/index.ts'),
+        'sortablejs': require.resolve('sortablejs/modular/sortable.esm.js'),
+        'vuedraggable': require.resolve('vuedraggable/src/vuedraggable.js')
       }
     },
     build: {
@@ -79,10 +88,10 @@ export default defineConfig({
       }
     },
     optimizeDeps: {
-      include: ['moonwind-ui'],
+      include: ['moonwind-ui', 'vuedraggable', 'sortablejs', '@vitepress-demo-preview/component'],
     },
     ssr: {
-      noExternal: ['moonwind-ui'],
+      noExternal: ['moonwind-ui', 'vuedraggable', 'sortablejs', '@vitepress-demo-preview/component', '@vitepress-demo-preview/plugin', 'floating-vue', 'vue-sonner'],
     }
   },
 

@@ -41,13 +41,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, onMounted, toRefs, inject, shallowRef } from "vue";
+import { computed, ref, watch, inject, shallowRef } from "vue";
 import { useNamespace } from "@moonwind-ui/hooks";
-import type { DataGridColumn, GridApi } from "../types";
+import type { DataGridColumn } from "../types";
 import { IconSearch, IconDrag } from "@moonwind-ui/icons";
 import draggable from "vuedraggable";
 import { GRID_INJECT_KEY } from "../utils";
-import MButton from "@/Button/Button.vue";
+import MButton from "../../Button";
 
 defineOptions({
   name: "DataGridColumnsPanel",

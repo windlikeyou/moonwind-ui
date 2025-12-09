@@ -123,7 +123,7 @@ importers:
         specifier: ^34.3.0
         version: 34.3.0(vue@3.5.22)
       moonwind-ui:
-        specifier: workspace:*
+        specifier: npm:moonwind-ui@latest
         version: link:../packages/moonwind-ui
     devDependencies:
       '@vitepress-demo-preview/component':
@@ -3733,7 +3733,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.22(typescript@5.9.2)
-      vue-component-type-helpers: 3.1.7
+      vue-component-type-helpers: 3.1.8
     dev: true
 
   /@testing-library/dom@10.4.0:
@@ -10969,8 +10969,8 @@ packages:
     resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==}
     dev: true
 
-  /vue-component-type-helpers@3.1.7:
-    resolution: {integrity: sha512-SxZOijzRU0LiTYARVZNYf//21bZRLJ26P2prcA6a+FfDQxJtan4tEnsryIY7aiLh2LVoet0ci2G+6RrArQ+7tA==}
+  /vue-component-type-helpers@3.1.8:
+    resolution: {integrity: sha512-oaowlmEM6BaYY+8o+9D9cuzxpWQWHqHTMKakMxXu0E+UCIOMTljyIPO15jcnaCwJtZu/zWDotK7mOIHvWD9mcw==}
     dev: true
 
   /vue-devtools-stub@0.1.0:

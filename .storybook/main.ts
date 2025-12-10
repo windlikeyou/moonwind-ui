@@ -20,8 +20,8 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true
   },
-  viteFinal: async (cfg) => {
-    if ((cfg as any).mode === 'production') {
+  viteFinal: async (cfg, { configType }) => {
+    if (configType === 'PRODUCTION') {
       cfg.base = '/moonwind-ui/storybook/'
     } else {
       cfg.base = '/'
